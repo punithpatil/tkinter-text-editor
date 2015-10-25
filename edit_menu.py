@@ -22,14 +22,14 @@ class Edit():
 		self.text.mark_set(0.0, END)
 		self.text.see(INSERT)
 	
-	def __init__(self,text):
+	def __init__(self,text, root):
 		self.clipboard = None
 		self.text = text
 		self.rightClick = Menu(root)
 		
 def main(root,text,menubar):
 
-	objEdit = Edit(text)
+	objEdit = Edit(text, root)
 	editmenu = Menu(menubar)
 	editmenu.add_command(label="Copy", command=objEdit.copy)
 	editmenu.add_command(label="Cut", command=objEdit.cut)
