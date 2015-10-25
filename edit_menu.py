@@ -2,8 +2,8 @@ from common_imports import *
 
 class Edit():
 
-	def popup(event):
-		rightClick.post(event.x_root, event.y_root)
+	def popup(self, event):
+		self.rightClick.post(event.x_root, event.y_root)
 	
 	def copy(self):
 		sel = self.text.selection_get()
@@ -17,7 +17,7 @@ class Edit():
 	def paste(self):
 		self.text.insert(INSERT, self.clipboard)
 	
-	def selectAll():
+	def selectAll(self):
 		self.text.tag_add(SEL, "1.0", END)
 		self.text.mark_set(0.0, END)
 		self.text.see(INSERT)
@@ -25,6 +25,7 @@ class Edit():
 	def __init__(self,text):
 		self.clipboard = None
 		self.text = text
+		self.rightClick = Menu(root)
 		
 def main(root,text):
 	objEdit = Edit(text)
@@ -35,14 +36,15 @@ def main(root,text):
 	editmenu.add_command(label="Select All", command=objEdit.selectAll)
 	menubar.add_cascade(label="Edit", menu=editmenu)
 	
-	rightClick = Menu(root, tearoff=0)
-	rightClick.add_command(label="Copy", command=objEdit.copy)
-	rightClick.add_command(label="Cut", command=objEdit.cut)
-	rightClick.add_command(label="Paste", command=objEdit.paste)
-	rightClick.add_separator()
-	rightClick.add_command(label="Select All", command=objEdit.selectAll)
+	objEdit.rightClick.add_command(label="Copy", command=objEdit.copy)
+	objEdit.rightClick.add_command(label="Cut", command=objEdit.cut)
+	objEdit.rightClick.add_command(label="Paste", command=objEdit.paste)
+	objEdit.rightClick.add_separator()
+	objEdit.rightClick.add_command(label="Select All", command=objEdit.selectAll)
+	objEdit.rightClick.bind("<Control-q>", objEdit.selectAll)
 	
 	text.bind("<Button-3>", objEdit.popup)
+
 	
 	root.config(menu=menubar)
 
