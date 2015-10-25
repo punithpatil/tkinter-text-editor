@@ -32,19 +32,25 @@ class File():
 		self.text.delete(0.0, END)
 		self.text.insert(0.0, t)
 		
-	def __init__(self,text):
+	def quit(self):
+		entry = askyesno(title="Quit", message = "Are you sure you want to quit?")
+		if entry == True:
+			self.root.destroy()
+		
+	def __init__(self,text,root):
 		self.filename = None
 		self.text = text
+		self.root = root
 
 def main(root,text,menubar):
 	filemenu = Menu(menubar)
-	objFile = File(text)
+	objFile = File(text, root)
 	filemenu.add_command(label="New", command=objFile.newFile)
 	filemenu.add_command(label="Open", command=objFile.openFile)
 	filemenu.add_command(label="Save", command=objFile.saveFile)
 	filemenu.add_command(label="Save As...", command=objFile.saveAs)
 	filemenu.add_separator()
-	filemenu.add_command(label="Quit", command=root.quit)
+	filemenu.add_command(label="Quit", command=objFile.quit)
 	menubar.add_cascade(label="File", menu=filemenu)
 	root.config(menu=menubar)
 	
