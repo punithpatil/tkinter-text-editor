@@ -36,8 +36,7 @@ class File():
 		self.filename = None
 		self.text = text
 
-def main(root,text):
-	menubar = Menu(root)
+def main(root,text,menubar):
 	filemenu = Menu(menubar)
 	objFile = File(text)
 	filemenu.add_command(label="New", command=objFile.newFile)

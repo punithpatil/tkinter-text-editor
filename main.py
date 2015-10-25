@@ -11,7 +11,9 @@ root.maxsize(width=400, height=400)
 text = Text(root, width=400, height=400)
 text.pack()
 
-file_menu.main(root,text)
-edit_menu.main(root,text)
+menubar = Menu(root)
+
+file_menu.main(root,text,menubar)
+edit_menu.main(root,text,menubar)
 
 root.mainloop()
