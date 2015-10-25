@@ -17,7 +17,7 @@ class Edit():
 	def paste(self):
 		self.text.insert(INSERT, self.clipboard)
 	
-	def selectAll():
+	def selectAll(self):
 		self.text.tag_add(SEL, "1.0", END)
 		self.text.mark_set(0.0, END)
 		self.text.see(INSERT)
@@ -26,7 +26,8 @@ class Edit():
 		self.clipboard = None
 		self.text = text
 		
-def main(root,text):
+def main(root,text,menubar):
+
 	objEdit = Edit(text)
 	editmenu = Menu(menubar)
 	editmenu.add_command(label="Copy", command=objEdit.copy)
