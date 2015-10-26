@@ -18,4 +18,4 @@ def main(root,text,menubar):
 	root.config(menu=menubar)
 
 if __name__=="__main__":
-	main(sys.argv)
+	print ("Please run 'main.py'")
