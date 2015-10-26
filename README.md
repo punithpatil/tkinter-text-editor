@@ -3,8 +3,11 @@ Simple text editor designed in Python using the Tkinter library.
 
 # Library required
 For Python 2.7
+
 `sudo apt-get install python-tk`
+
 For Python 3.0 and above
+
 `sudo apt-get install python3-tk`
 
 # Bugs
