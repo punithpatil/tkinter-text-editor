@@ -1,5 +1,6 @@
 # tkinter-text-editor
 Simple text editor designed in Python using the Tkinter library.
+
 This project has been developed on Ubuntu 14.04 LTS using Python 2.7
 
 # Library required
