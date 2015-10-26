@@ -5,6 +5,7 @@ from tkFont import Font
 from ScrolledText import *
 import file_menu
 import edit_menu
+import format_menu
 import help_menu
 
 root = Tk()
@@ -23,5 +24,6 @@ menubar = Menu(root)
 
 file_menu.main(root,text,menubar)
 edit_menu.main(root,text,menubar)
+format_menu.main(root,text,menubar)
 help_menu.main(root,text,menubar)
 root.mainloop()
